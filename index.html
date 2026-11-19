@@ -1,117 +1,120 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>POLIWANGI CYBER PORTAL 2026</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#06110b">
+<title>POLIWANGI // CYBER PORTAL 2026</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
+<canvas id="matrix"></canvas><div class="scanlines"></div>
 <header class="topbar">
-  <h2>POLIWANGI <span>CYBER SYSTEM</span></h2>
-  <div>● SYSTEM ONLINE <b id="clock"></b></div>
+  <a class="brand" href="#"><b>P//</b><span>POLIWANGI<small>CYBER INTELLIGENCE PORTAL · 2026</small></span></a>
+  <div class="topright"><span class="online"><i></i> SYSTEM ONLINE</span><time id="clock">--:--:--</time><button id="menuToggle" class="iconbtn" aria-label="Menu">☰</button></div>
 </header>
-
 <div class="layout">
-<aside class="sidebar">
-  <h3>MAIN MENU</h3>
-  <button data-page="dashboard">⌘ Dashboard</button>
-  <button data-page="students">⌕ Student Lookup</button>
-  <button data-page="weather">☁ Weather Monitor</button>
-  <button data-page="cyberlab">⌁ Cyber Lab</button>
-  <button data-page="departments">◈ Jurusan & Prodi</button>
-  <button data-page="about">ⓘ Profil Kampus</button>
+<aside id="sidebar">
+  <div class="sidehead">NAVIGATION / MENU</div>
+  <button class="nav active" data-page="dashboard">▣ <span>Dashboard</span></button>
+  <button class="nav" data-page="students">⌕ <span>Student Intelligence</span></button>
+  <button class="nav" data-page="weather">☂ <span>Weather Intelligence</span></button>
+  <button class="nav" data-page="cyber">⌘ <span>Cyber Security Lab</span></button>
+  <button class="nav" data-page="network">⌁ <span>Network Intelligence</span></button>
+  <button class="nav" data-page="campus">◈ <span>Campus Database</span></button>
+  <button class="nav" data-page="calendar">◷ <span>Academic Calendar</span></button>
+  <button class="nav" data-page="announcements">▤ <span>Announcements</span></button>
+  <div class="sidefoot"><i></i> PUBLIC INFORMATION MODE<small>UNOFFICIAL DEMO INTERFACE</small></div>
 </aside>
-
 <main>
-<section id="dashboard" class="page active">
-  <div class="hero">
-    <p>POLITEKNIK NEGERI BANYUWANGI / 2026</p>
-    <h1>WELCOME TO THE<br><span>CYBER PORTAL</span></h1>
-    <p>Centralized Campus Information System</p>
-  </div>
+<section class="hero">
+ <div><p class="eyebrow">POLITEKNIK NEGERI BANYUWANGI / 2026</p><h1>CYBER<br><em>INTELLIGENCE</em></h1><p class="sub">Campus information interface · Public data workspace</p><div class="heroactions"><button class="btn" data-goto="students">OPEN STUDENT SEARCH ↗</button><button class="btn ghost" data-goto="cyber">ENTER CYBER LAB</button></div></div>
+ <div class="heroGraphic"><div class="circle c1"></div><div class="circle c2"></div><div class="circle c3"></div><div class="cross">P</div><span class="orbitlabel l1">DATA CORE</span><span class="orbitlabel l2">SYS 2026</span></div>
+</section>
+<div class="ticker"><span>● LIVE INTERFACE</span><span>PUBLIC DATA ONLY</span><span>SECURITY SIMULATION</span><span id="dateText">--</span></div>
 
-  <div class="stats">
-    <div><small>JURUSAN</small><h1>05</h1></div>
-    <div><small>PROGRAM STUDI</small><h1>19</h1></div>
-    <div><small>TAHUN</small><h1>2026</h1></div>
-  </div>
-
-  <div class="panel">
-    <h3>TERMINAL LOG</h3>
-    <p>[OK] System initialized</p>
-    <p>[OK] Campus interface loaded</p>
-    <p>[OK] Student lookup ready</p>
-    <p>[INFO] Public information mode</p>
-  </div>
+<section class="page active" id="dashboard">
+ <div class="sectiontitle"><div><p class="eyebrow">OVERVIEW / 01</p><h2>System Dashboard</h2></div><span class="pill">STATUS: OPERATIONAL</span></div>
+ <div class="stats">
+  <article class="stat"><small>JURUSAN</small><strong>05</strong><span>Campus divisions</span></article>
+  <article class="stat"><small>PROGRAM STUDI</small><strong id="programCount">—</strong><span>Directory entries</span></article>
+  <article class="stat"><small>DATA MAHASISWA</small><strong id="studentCount">0</strong><span>Local authorized dataset</span></article>
+  <article class="stat"><small>TOOLS</small><strong>12+</strong><span>Browser-based utilities</span></article>
+ </div>
+ <div class="grid2">
+  <article class="panel"><div class="panelhead">▰ SYSTEM STATUS</div><div class="statusrow"><span>Interface</span><b class="green">ONLINE</b></div><div class="statusrow"><span>Student database</span><b class="amber">LOCAL / DEMO</b></div><div class="statusrow"><span>Weather API</span><b id="weatherStatus">NOT LOADED</b></div><div class="statusrow"><span>Network tools</span><b class="green">READY</b></div><p class="muted">Portal demonstrasi untuk mengelola informasi publik. Bukan sistem internal resmi Poliwangi.</p></article>
+  <article class="panel terminalpanel"><div class="panelhead">▰ ACTIVITY STREAM</div><div id="activityLog" class="activity"><p>[BOOT] Cyber interface initialized</p><p>[OK] Local modules loaded</p><p>[INFO] Waiting for user command...</p></div><div class="terminalprompt">visitor@poliwangi:~$ <span class="blink">_</span></div></article>
+ </div>
+ <article class="panel welcome"><p class="eyebrow">QUICK ACCESS</p><div class="quick"><button data-goto="students">⌕ <span>Student Search</span></button><button data-goto="weather">☂ <span>Weather Forecast</span></button><button data-goto="cyber">⌘ <span>Cyber Lab</span></button><button data-goto="network">⌁ <span>Network Tools</span></button></div></article>
+ <p class="disclaimer">PENTING: Data mahasiswa contoh tidak berisi data pribadi nyata. Gunakan hanya data yang kamu miliki izin untuk mengolahnya.</p>
 </section>
 
-<section id="students" class="page">
-  <h1>STUDENT DATABASE</h1>
-  <p>Cari data mahasiswa berdasarkan nama atau NIM.</p>
-  <div class="searchbox">
-    <input id="studentQuery" placeholder="Masukkan nama atau NIM...">
-    <button onclick="searchStudents()">SEARCH</button>
-  </div>
-  <div id="studentResults"></div>
-  <p class="warning">DATABASE DEMO: belum terhubung ke data mahasiswa resmi.</p>
+<section class="page" id="students">
+ <div class="sectiontitle"><div><p class="eyebrow">STUDENT INTELLIGENCE / 02</p><h2>Student Lookup</h2></div><span class="pill">LOCAL DATASET</span></div>
+ <article class="panel">
+  <p class="muted">Cari berdasarkan NIM atau nama. Filter jurusan, program studi, dan angkatan. Data tidak diambil dari sistem akademik kampus.</p>
+  <div class="searchline"><input id="studentSearch" placeholder="Masukkan nama atau NIM..." autocomplete="off"><button class="btn" id="searchStudent">SEARCH DATABASE</button><button class="btn ghost" id="resetStudent">RESET</button></div>
+  <div class="filters"><label>Jurusan<select id="studentDept"><option value="">Semua jurusan</option></select></label><label>Program studi<select id="studentProgram"><option value="">Semua prodi</option></select></label><label>Angkatan<select id="studentYear"><option value="">Semua angkatan</option><option>2022</option><option>2023</option><option>2024</option><option>2025</option><option>2026</option></select></label></div>
+  <div class="resultmeta" id="studentMeta">0 RECORDS FOUND</div><div id="studentResults" class="studentresults"><div class="empty">DATASET KOSONG. Tambahkan data berizin ke file script.js.</div></div>
+ </article>
+ <article class="panel"><div class="panelhead">▰ SEARCH HISTORY</div><div id="searchHistory" class="history">Belum ada pencarian pada sesi ini.</div></article>
 </section>
 
-<section id="weather" class="page">
-  <h1>WEATHER MONITOR</h1>
-  <div class="panel">
-    <h2>☁ BANYUWANGI / DENPASAR</h2>
-    <p>Periksa prakiraan cuaca terkini melalui BMKG.</p>
-    <a href="https://www.bmkg.go.id/cuaca/" target="_blank">OPEN BMKG WEATHER ↗</a>
-  </div>
+<section class="page" id="weather">
+ <div class="sectiontitle"><div><p class="eyebrow">ENVIRONMENT / 03</p><h2>Weather Intelligence</h2></div><span class="pill">OPEN-METEO SOURCE</span></div>
+ <article class="panel">
+  <div class="weathercontrols"><label>Lokasi<select id="weatherLocation"><option value="Banyuwangi">Banyuwangi</option><option value="Denpasar">Denpasar</option><option value="Jakarta">Jakarta</option><option value="Surabaya">Surabaya</option></select></label><button class="btn" id="loadWeather">UPDATE FORECAST ↻</button></div>
+  <div id="weatherCurrent" class="weathercurrent"><div class="empty">Tekan UPDATE FORECAST untuk mengambil prakiraan terbaru.</div></div>
+  <div class="hourly" id="hourlyForecast"></div>
+  <p class="muted" id="weatherNote">Prakiraan diambil dari Open-Meteo. Perkiraan dapat berubah; untuk peringatan resmi Indonesia, periksa BMKG.</p>
+  <a class="textlink" href="https://www.bmkg.go.id/" target="_blank" rel="noopener">OPEN BMKG OFFICIAL ↗</a>
+ </article>
 </section>
 
-<section id="cyberlab" class="page">
-  <h1>CYBER LAB</h1>
-
-  <div class="panel">
-    <h3>TERMINAL SIMULATOR</h3>
-    <div id="terminalOutput">POLIWANGI CYBER LAB<br>Type help to begin.</div>
-    <input id="terminalInput" placeholder="Ketik perintah...">
-    <button onclick="runCommand()">EXECUTE</button>
-  </div>
-
-  <div class="panel">
-    <h3>PASSWORD GENERATOR</h3>
-    <div id="passwordOutput">**************</div>
-    <button onclick="generatePassword()">GENERATE</button>
-  </div>
-
-  <div class="panel">
-    <h3>BASE64 ENCODER</h3>
-    <textarea id="codecInput" placeholder="Masukkan teks"></textarea>
-    <button onclick="encodeText()">ENCODE</button>
-    <button onclick="decodeText()">DECODE</button>
-    <p id="codecOutput"></p>
-  </div>
+<section class="page" id="cyber">
+ <div class="sectiontitle"><div><p class="eyebrow">SECURITY PLAYGROUND / 04</p><h2>Cyber Security Lab</h2></div><span class="pill">LOCAL TOOLS</span></div>
+ <div class="toolgrid">
+  <article class="panel"><div class="panelhead">01 / TERMINAL SIMULATOR</div><p class="muted">Perintah lokal: help, about, whoami, date, scan-demo, clear, tools.</p><div id="terminalOutput" class="terminaloutput">POLIWANGI CYBER LAB v2.0<br>Type <b>help</b> to list commands.</div><div class="searchline"><input id="terminalInput" placeholder="visitor@portal:~$" autocomplete="off"><button class="btn" id="runTerminal">RUN</button></div></article>
+  <article class="panel"><div class="panelhead">02 / PASSWORD GENERATOR</div><p class="muted">Buat password acak di browser.</p><div class="searchline"><input type="number" id="passLength" min="8" max="64" value="18"><label class="check"><input type="checkbox" id="passSymbols" checked> Symbols</label></div><div class="output" id="passwordOutput">••••••••••••••••••</div><div class="searchline"><button class="btn" id="generatePassword">GENERATE</button><button class="btn ghost" id="copyPassword">COPY</button></div></article>
+  <article class="panel"><div class="panelhead">03 / PASSWORD STRENGTH</div><p class="muted">Periksa kekuatan password secara lokal; teks tidak dikirim ke server.</p><input id="strengthInput" type="password" placeholder="Masukkan password untuk diuji"><div class="meter"><i id="strengthMeter"></i></div><p id="strengthText" class="muted">Belum diperiksa.</p></article>
+  <article class="panel"><div class="panelhead">04 / HASH GENERATOR · SHA-256</div><textarea id="hashInput" placeholder="Teks yang ingin di-hash..."></textarea><div class="searchline"><button class="btn" id="makeHash">GENERATE HASH</button><button class="btn ghost" id="copyHash">COPY</button></div><div id="hashOutput" class="output wrap">Hash muncul di sini.</div></article>
+  <article class="panel"><div class="panelhead">05 / BASE64 ENCODER & DECODER</div><textarea id="baseInput" placeholder="Masukkan teks atau Base64..."></textarea><div class="searchline"><button class="btn" id="baseEncode">ENCODE</button><button class="btn ghost" id="baseDecode">DECODE</button></div><div id="baseOutput" class="output wrap">Hasil akan muncul di sini.</div></article>
+  <article class="panel"><div class="panelhead">06 / URL SECURITY INSPECTOR</div><input id="urlInput" placeholder="https://example.com"><div class="searchline"><button class="btn" id="inspectUrl">INSPECT URL</button></div><div id="urlOutput" class="output wrap">Masukkan URL untuk memeriksa strukturnya.</div></article>
+  <article class="panel"><div class="panelhead">07 / TEXT ANALYZER</div><textarea id="textInput" placeholder="Masukkan teks untuk dianalisis..."></textarea><button class="btn" id="analyzeText">ANALYZE TEXT</button><div id="textOutput" class="output wrap">Hasil analisis muncul di sini.</div></article>
+  <article class="panel"><div class="panelhead">08 / QR CODE GENERATOR</div><input id="qrInput" placeholder="Teks atau URL untuk QR Code"><div class="searchline"><button class="btn" id="makeQr">GENERATE QR</button></div><div id="qrOutput" class="qroutput">QR code akan muncul di sini.</div><p class="muted tiny">Memerlukan koneksi internet untuk memuat pustaka QR eksternal.</p></article>
+  <article class="panel"><div class="panelhead">09 / SECURITY CHECKLIST</div><ul class="checklist"><li>Gunakan password unik minimal 12 karakter.</li><li>Aktifkan autentikasi dua faktor.</li><li>Perbarui browser dan sistem operasi.</li><li>Jangan bagikan kode OTP atau password.</li><li>Uji sistem hanya dengan izin pemilik.</li></ul></article>
+ </div>
 </section>
 
-<section id="departments" class="page">
-  <h1>DEPARTMENT DATABASE</h1>
-  <input id="programSearch" placeholder="Cari jurusan atau prodi..." oninput="renderDepartments()">
-  <div id="departmentCards"></div>
+<section class="page" id="network">
+ <div class="sectiontitle"><div><p class="eyebrow">NETWORK INTELLIGENCE / 05</p><h2>Network Tools</h2></div><span class="pill">PUBLIC / OWN DEVICE</span></div>
+ <div class="toolgrid">
+  <article class="panel"><div class="panelhead">01 / PUBLIC IP CHECK</div><p class="muted">Meminta alamat IP publik dari layanan pihak ketiga.</p><button class="btn" id="getIp">CHECK MY PUBLIC IP</button><div class="output" id="ipOutput">Belum diperiksa.</div></article>
+  <article class="panel"><div class="panelhead">02 / DNS LOOKUP</div><p class="muted">Mencari record DNS publik untuk sebuah domain.</p><input id="dnsDomain" placeholder="example.com"><div class="searchline"><button class="btn" id="dnsLookup">LOOKUP DNS</button></div><div class="output wrap" id="dnsOutput">Hasil DNS muncul di sini.</div></article>
+  <article class="panel"><div class="panelhead">03 / WEBSITE RESPONSE CHECK</div><p class="muted">Mencoba membuka URL. Sebagian situs memblokir pemeriksaan lintas-domain dari browser.</p><input id="siteUrl" placeholder="https://example.com"><div class="searchline"><button class="btn" id="siteCheck">CHECK WEBSITE</button></div><div class="output wrap" id="siteOutput">Status belum diperiksa.</div></article>
+  <article class="panel"><div class="panelhead">04 / PORT SCAN DEMONSTRATION</div><p class="muted">Simulasi edukasi dengan hasil fiktif. Tidak mengirim paket jaringan atau memindai target nyata.</p><input id="scanTarget" placeholder="localhost / nama lab"><button class="btn" id="portDemo">RUN DEMO SCAN</button><div class="output wrap" id="portOutput">Menunggu simulasi.</div></article>
+ </div>
 </section>
 
-<section id="about" class="page">
-  <h1>ABOUT POLIWANGI</h1>
-  <div class="panel">
-    <h2>Politeknik Negeri Banyuwangi</h2>
-    <p>Jl. Raya Jember KM 13, Labanasem, Kecamatan Kabat, Banyuwangi.</p>
-    <p>Website resmi:</p>
-    <a href="https://poliwangi.ac.id/" target="_blank">POLIWANGI.AC.ID ↗</a>
-  </div>
+<section class="page" id="campus">
+ <div class="sectiontitle"><div><p class="eyebrow">CAMPUS DIRECTORY / 06</p><h2>Campus Database</h2></div><span class="pill">PROGRAM DIRECTORY</span></div>
+ <article class="panel"><input id="programSearch" class="wideinput" placeholder="Cari jurusan atau program studi..."><div id="departmentCards" class="departmentgrid"></div></article>
+ <article class="panel"><div class="panelhead">▰ OFFICIAL CAMPUS DIRECTORY</div><p><b>Politeknik Negeri Banyuwangi</b></p><p class="muted">Jl. Raya Jember KM 13, Labanasem, Kecamatan Kabat, Kabupaten Banyuwangi, Jawa Timur.</p><a class="textlink" href="https://poliwangi.ac.id/" target="_blank" rel="noopener">WEBSITE RESMI POLIWANGI ↗</a></article>
 </section>
 
-</main>
-</div>
+<section class="page" id="calendar">
+ <div class="sectiontitle"><div><p class="eyebrow">ACADEMIC TIMELINE / 07</p><h2>Academic Calendar</h2></div><span class="pill">VERIFY OFFICIAL DATES</span></div>
+ <article class="panel"><p class="muted">Tanggal di bawah merupakan tempat data kalender akademik dimasukkan. Pastikan mengacu pada dokumen resmi terbaru Poliwangi.</p><div id="calendarList" class="timeline"></div><a class="textlink" href="https://poliwangi.ac.id/kalender-akademik/" target="_blank" rel="noopener">CHECK OFFICIAL ACADEMIC CALENDAR ↗</a></article>
+</section>
 
+<section class="page" id="announcements">
+ <div class="sectiontitle"><div><p class="eyebrow">CAMPUS UPDATES / 08</p><h2>Announcements</h2></div><span class="pill">OFFICIAL LINKS</span></div>
+ <div class="toolgrid">
+  <article class="panel"><div class="panelhead">OFFICIAL WEBSITE</div><p class="muted">Berita, pengumuman, dan informasi resmi kampus.</p><a class="textlink" href="https://poliwangi.ac.id/" target="_blank" rel="noopener">OPEN POLIWANGI ↗</a></article>
+  <article class="panel"><div class="panelhead">ACADEMIC CALENDAR</div><p class="muted">Informasi kalender akademik dan periode kegiatan perkuliahan.</p><a class="textlink" href="https://poliwangi.ac.id/kalender-akademik/" target="_blank" rel="noopener">OPEN CALENDAR ↗</a></article>
+  <article class="panel"><div class="panelhead">ADMISSION INFORMATION</div><p class="muted">Informasi penerimaan mahasiswa baru. Periksa jalur dan jadwal terbaru.</p><a class="textlink" href="https://poliwangi.ac.id/" target="_blank" rel="noopener">CHECK ADMISSION ↗</a></article>
+ </div>
+</section>
+<footer>POLIWANGI CYBER PORTAL 2026 <span>UNOFFICIAL DEMO · PUBLIC DATA ONLY</span></footer>
+</main></div>
 <script src="script.js"></script>
-</body>
-</html>
+</body></html>
